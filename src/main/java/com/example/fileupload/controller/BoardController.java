@@ -219,7 +219,7 @@ public class BoardController {
 		
 		// 첨부된 파일이 있는 경우 -> Boardfile에서 bno(게시판 번호)로 파일이 있는지 확인 필요
 		List<Boardfile> fileList = boardfileRepository.findByBno(board.getBno());
-		if(!fileList.isEmpty() || fileList != null) {
+		if(fileList != null && !fileList.isEmpty()) {
 			log.debug("게시글 삭제 실패");
 			rda.addFlashAttribute("msg", "첨부파일이 있을 경우 게시글을 삭제할 수 없습니다.");
 			return "redirect:/boardOne?bno="+board.getBno();
