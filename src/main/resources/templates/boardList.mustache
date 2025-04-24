@@ -5,6 +5,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div>
+		<a href="/addBoard">[게시판 추가]</a>
+	</div>
+	
+	{{#msg}}
+		<div>
+			{{msg}}
+		</div>
+	{{/msg}}
+
 	<h1>boardList</h1>
 	<table border="1">
 		<tr>
@@ -22,5 +32,18 @@
 			</tr>
 		{{/list}}
 	</table>
+	
+	<div>
+		<!-- 첫 페이지가 아닌 경우 -->
+		{{^list.isFirst}}
+			<a href="/boardList?currentPage={{prePage}}">[이전 페이지]</a>
+		{{/list.isFirst}}
+	</div>
+	
+	<div>	
+		{{#list.hasNext}}
+			<a href="/boardList?curentPage={{nextPage}}">[다음 페이지]</a>
+		{{/list.hasNext}}
+	</div>
 </body>
 </html>

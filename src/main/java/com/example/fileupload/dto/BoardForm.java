@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class BoardForm {
+	private int bno;
 	private String title;
 	private String pw;
 	private List<MultipartFile> fileList; // spring에서 input type="file"
